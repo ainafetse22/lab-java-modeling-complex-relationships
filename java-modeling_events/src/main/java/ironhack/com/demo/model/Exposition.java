@@ -15,11 +15,4 @@ import java.util.List;
 @Setter
 @Entity(name="exposition")
 public class Exposition extends Event{
-    @ManyToMany
-    @JoinTable(
-            name="exposition_guest",
-            joinColumns = @JoinColumn(name="exposition_id"),
-            inverseJoinColumns = @JoinColumn(name="guest_id")
-    )
-    private List<Guest> guests;
 }

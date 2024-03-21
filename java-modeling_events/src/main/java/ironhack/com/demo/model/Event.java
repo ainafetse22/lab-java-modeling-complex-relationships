@@ -9,7 +9,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @NoArgsConstructor
 @Getter
 @Setter
@@ -21,7 +22,13 @@ abstract class Event {
     private BigDecimal duration;
     private String location;
     private String title;
-
+    @ManyToMany
+    @JoinTable(
+            name="event_guest",
+            joinColumns = @JoinColumn(name="event_id"),
+            inverseJoinColumns = @JoinColumn(name="guest_id")
+    )
+    private List<Guest> guests;
 
 
 }

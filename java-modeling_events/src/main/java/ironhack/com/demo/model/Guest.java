@@ -20,8 +20,5 @@ public class Guest {
     private String name;
     private Status status;
     @ManyToMany(mappedBy = "guests")
-    private List<Exposition> expositions;
-
-    @ManyToMany(mappedBy = "guests")
-    private List<Conferences> conferences;
+    private List<Event> events;
 }
